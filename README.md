@@ -5,13 +5,12 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [404]
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: [Krishna] - [College]
+- Member 2: [jasil] - [College]
 
 ### Project Description
 [2-3 lines about what your project does]
@@ -90,7 +89,6 @@ For Hardware:
 ## Team Contributions
 - [Name 1]: [Specific contributions]
 - [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
