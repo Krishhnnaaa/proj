@@ -36,18 +36,17 @@ const InlineBanner: React.FC<InlineBannerProps> = ({ message, type, onDismiss })
   return (
     <div className={`
       ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
-      transition-all duration-500 ease-out
-      px-6 py-4 border-b shadow-sm
-      relative z-[100]
+      transition-all duration-300 ease-out
+      px-4 py-3 border-b
       ${getTypeColor()}
     `}>
-      <div className="flex items-center justify-between max-w-6xl mx-auto">
+      <div className="flex items-center justify-between max-w-4xl mx-auto">
         <div className="flex-1">
-          <p className="text-sm font-medium leading-relaxed">{message}</p>
+          <p className="text-sm font-medium">{message}</p>
         </div>
         <button
           onClick={() => setIsVisible(false)}
-          className="ml-4 p-1.5 rounded-lg hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-200 hover:scale-105"
+          className="ml-4 p-1 rounded hover:bg-black/10 dark:hover:bg-white/10 transition-colors"
         >
           <X className="w-4 h-4" />
         </button>
