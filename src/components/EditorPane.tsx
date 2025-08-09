@@ -6,9 +6,10 @@ import { setupIdleTracking } from '../tracking/idle';
 
 interface EditorPaneProps {
   theme: 'light' | 'dark';
+  font: string;
 }
 
-const EditorPane: React.FC<EditorPaneProps> = ({ theme }) => {
+const EditorPane: React.FC<EditorPaneProps> = ({ theme, font }) => {
   const editorRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -63,13 +64,14 @@ procrastinate();
         onMount={handleEditorDidMount}
         options={{
           automaticLayout: true,
+          fontFamily: font,
           minimap: { enabled: false },
           smoothScrolling: true,
           wordWrap: 'on',
           fontLigatures: true,
-          fontSize: 14,
-          lineHeight: 20,
-          padding: { top: 16, bottom: 16 },
+          fontSize: 15,
+          lineHeight: 22,
+          padding: { top: 20, bottom: 20 },
           scrollBeyondLastLine: false,
           renderLineHighlight: 'gutter',
           selectionHighlight: false,
@@ -77,6 +79,7 @@ procrastinate();
           quickSuggestions: false,
           parameterHints: { enabled: false },
           suggestOnTriggerCharacters: false,
+          cursorBlinking: 'smooth',
         }}
       />
     </div>

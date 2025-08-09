@@ -28,11 +28,11 @@ const StatusBar: React.FC<StatusBarProps> = ({ data, theme }) => {
   };
 
   return (
-    <footer className="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 text-sm">
+    <footer className="flex items-center justify-between px-4 py-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 text-sm shadow-sm">
       <div className="flex items-center space-x-4">
         <div className="flex items-center space-x-2">
-          <span className="text-gray-600 dark:text-gray-400">Session:</span>
-          <span className="font-medium">
+          <span className="text-gray-600 dark:text-gray-400 font-medium">Session:</span>
+          <span className="font-bold">
             {formatTime(data.metrics.activeMs + data.metrics.idleMs + data.metrics.hiddenMs)}
           </span>
         </div>
@@ -44,7 +44,7 @@ const StatusBar: React.FC<StatusBarProps> = ({ data, theme }) => {
         )}
       </div>
 
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center space-x-2">
         {data.metrics.undoCount + data.metrics.redoCount > 5 && (
           <div className={getChipClass('blue')}>
             Undo loops ×{Math.floor((data.metrics.undoCount + data.metrics.redoCount) / 6)}
@@ -63,7 +63,7 @@ const StatusBar: React.FC<StatusBarProps> = ({ data, theme }) => {
           </div>
         )}
         
-        <div className="text-gray-500 dark:text-gray-400">
+        <div className="text-gray-500 dark:text-gray-400 font-medium">
           {theme === 'dark' ? '🌙' : '☀️'} {theme}
         </div>
       </div>
