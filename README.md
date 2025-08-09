@@ -1,7 +1,7 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# [anti-productivity IDE] 🎯
 
 
 ## Basic Details
@@ -45,13 +45,13 @@ npm run dev
 ### Project Documentation
 
 # Screenshots
-![Screenshot1](Add screenshot 1 here with proper name)
+![Screenshot1](1.png)
 *Monaco Editor with witty banner*
 
-![Screenshot2](Add screenshot 2 here with proper name)
+![Screenshot2](2.png)
 *Anti-Productivity Dashboard showing live stats*
 
-![Screenshot3](Add screenshot 3 here with proper name)
+![Screenshot3](3.png)
 *Status bar with animated chips for undo/redo and idle streaks*
 
 # Diagrams
@@ -59,16 +59,8 @@ npm run dev
 *Add caption explaining your workflow*
 
 
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
-
 ## Team Contributions
-- Krishna:App architecture, tracking logic, witty commentary
+- Krishna:App architecture, tracking logic,
 - jasil: UI design, Monaco integration, dashboard
 
 
@@ -76,4 +68,5 @@ npm run dev
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+
 ![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
