@@ -38,6 +38,7 @@ const InlineBanner: React.FC<InlineBannerProps> = ({ message, type, onDismiss })
       ${isVisible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}
       transition-all duration-500 ease-out
       px-6 py-4 border-b shadow-sm
+      relative z-[100]
       ${getTypeColor()}
     `}>
       <div className="flex items-center justify-between max-w-6xl mx-auto">

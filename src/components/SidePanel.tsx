@@ -1,13 +1,12 @@
 import React from 'react';
-import { X, Clock, RotateCcw, RotateCw, Zap, Eye, Target } from 'lucide-react';
+import { Clock, RotateCcw, RotateCw, Zap, Eye, Target } from 'lucide-react';
 import { TrackerData } from '../tracking/tracker';
 
 interface SidePanelProps {
   data: TrackerData;
-  onClose: () => void;
 }
 
-const SidePanel: React.FC<SidePanelProps> = ({ data, onClose }) => {
+const SidePanel: React.FC<SidePanelProps> = ({ data }) => {
   const formatTime = (ms: number) => {
     const seconds = Math.floor(ms / 1000);
     const minutes = Math.floor(seconds / 60);
@@ -24,20 +23,37 @@ const SidePanel: React.FC<SidePanelProps> = ({ data, onClose }) => {
   return (
     <div className="h-full bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm flex flex-col">
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20">
+      <div className="flex items-center p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20">
         <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">
           Anti-Productivity Dashboard
         </h2>
-        <button
-          onClick={onClose}
-          className="p-1.5 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-105"
-        >
-          <X className="w-4 h-4" />
-        </button>
       </div>
 
       {/* Content */}
       <div className="flex-1 overflow-y-auto p-4 space-y-6">
+        {/* Recent Quips - Moved to top */}
+        <div>
+          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">
+            Recent Quips
+          </h3>
+          <div className="space-y-3 max-h-48 overflow-y-auto">
+            {data.recentQuips.length === 0 ? (
+              <div className="text-sm text-gray-500 dark:text-gray-400 italic p-4 text-center">
+                No quips yet. Start procrastinating to see some!
+              </div>
+            ) : (
+              data.recentQuips.map((quip, index) => (
+                <div key={index} className="bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+                  <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
+                    {new Date(quip.timestamp).toLocaleTimeString()} • {quip.type}
+                  </div>
+                  <div className="text-sm leading-relaxed">{quip.message}</div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
         {/* KPIs */}
         <div>
           <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">
@@ -124,28 +140,6 @@ const SidePanel: React.FC<SidePanelProps> = ({ data, onClose }) => {
           </div>
         </div>
 
-        {/* Recent Quips */}
-        <div>
-          <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-4">
-            Recent Quips
-          </h3>
-          <div className="space-y-3 max-h-48 overflow-y-auto">
-            {data.recentQuips.length === 0 ? (
-              <div className="text-sm text-gray-500 dark:text-gray-400 italic p-4 text-center">
-                No quips yet. Start procrastinating to see some!
-              </div>
-            ) : (
-              data.recentQuips.map((quip, index) => (
-                <div key={index} className="bg-white dark:bg-gray-900 p-4 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="text-xs text-gray-500 dark:text-gray-400 mb-2 font-medium">
-                    {new Date(quip.timestamp).toLocaleTimeString()} • {quip.type}
-                  </div>
-                  <div className="text-sm leading-relaxed">{quip.message}</div>
-                </div>
-              ))
-            )}
-          </div>
-        </div>
 
         {/* Anti-tasks Stream */}
         <div>

@@ -132,7 +132,7 @@ function App() {
                 <Type className="w-4 h-4" />
               </button>
               {showFontMenu && (
-                <div className="absolute right-0 top-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 min-w-48">
+                <div className="absolute right-0 top-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-[9999] min-w-48">
                   <div className="p-2">
                     <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 px-2">Choose Font</div>
                     {fonts.map((font) => (
@@ -165,7 +165,7 @@ function App() {
                 <Palette className="w-4 h-4" />
               </button>
               {showColorMenu && (
-                <div className="absolute right-0 top-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 min-w-48">
+                <div className="absolute right-0 top-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-[9999] min-w-48">
                   <div className="p-2">
                     <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-2 px-2">Choose Theme</div>
                     {colors.map((color) => (
@@ -192,13 +192,6 @@ function App() {
             >
               {theme === 'dark' ? '☀️' : '🌙'}
             </button>
-            <button
-              onClick={togglePanel}
-              className="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200 hover:scale-105"
-              title="Toggle dashboard"
-            >
-              📊
-            </button>
           </div>
         </header>
 
@@ -213,15 +206,13 @@ function App() {
 
         {/* Main content */}
         <div className="flex-1 flex overflow-hidden">
-          <div className={`transition-all duration-300 ${isPanelOpen ? 'flex-1' : 'w-full'}`}>
+          <div className="flex-1">
             <EditorPane theme={theme} font={editorFont} />
           </div>
           
-          {isPanelOpen && (
-            <div className="w-80 border-l border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
-              <SidePanel data={trackerData} onClose={() => setIsPanelOpen(false)} />
-            </div>
-          )}
+          <div className="w-80 border-l border-gray-200 dark:border-gray-700 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+            <SidePanel data={trackerData} />
+          </div>
         </div>
 
         {/* Status Bar */}
@@ -231,7 +222,7 @@ function App() {
       {/* Click outside to close menus */}
       {(showFontMenu || showColorMenu) && (
         <div 
-          className="fixed inset-0 z-40" 
+          className="fixed inset-0 z-[9998]" 
           onClick={() => {
             setShowFontMenu(false);
             setShowColorMenu(false);
